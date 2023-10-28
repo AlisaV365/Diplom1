@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('study', '0002_test'),
     ]
@@ -16,7 +15,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.CharField(max_length=500, verbose_name='Text of the question')),
-                ('test', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='questions', to='study.test', verbose_name='Test')),
+                ('test', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='questions',
+                                           to='study.test', verbose_name='Test')),
             ],
             options={
                 'verbose_name': 'вопрос',
@@ -28,7 +28,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.CharField(max_length=500, verbose_name='Text of the answer')),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='study.question', verbose_name='Question')),
+                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='study.question',
+                                               verbose_name='Question')),
             ],
             options={
                 'verbose_name': 'ответ',

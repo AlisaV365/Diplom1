@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ('study', '0003_question_answer'),
@@ -19,7 +18,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('answer', models.CharField(max_length=400, verbose_name='Text of the answer')),
                 ('is_passed', models.BooleanField(default=False, verbose_name='Is_passed')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_answera', to=settings.AUTH_USER_MODEL, verbose_name='Question')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_answera',
+                                           to=settings.AUTH_USER_MODEL, verbose_name='Question')),
             ],
             options={
                 'verbose_name': 'ответпользователя',

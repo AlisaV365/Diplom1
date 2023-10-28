@@ -26,22 +26,22 @@ class LessonDetailAPIView(generics.RetrieveAPIView):
     queryset = Lesson.objects.all()
 
 
-
 class LessonUpdateAPIView(generics.UpdateAPIView):
     """Обновление материала."""
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
 
 
-
 class LessonDeleteAPIView(generics.DestroyAPIView):
     """Удаление материала."""
     queryset = Lesson.objects.all()
+
 
 class TestCreateAPIView(generics.CreateAPIView):
     """Создание теста.
        Для создания теста необходимо ввести имя теста и описание."""
     serializer_class = TestSerializer
+
 
 class TestListAPIView(generics.ListAPIView):
     """Получение списка тестов.
@@ -58,10 +58,12 @@ class TestDetailAPIView(generics.RetrieveAPIView):
     serializer_class = TestSerializer
     queryset = Test.objects.all()
 
+
 class TestUpdateAPIView(generics.UpdateAPIView):
     """Обновление теста."""
     serializer_class = TestSerializer
     queryset = Test.objects.all()
+
 
 class TestDeleteAPIView(generics.DestroyAPIView):
     """Удаление теста."""
@@ -72,6 +74,7 @@ class QuestionCreateAPIView(generics.CreateAPIView):
     """Создание вопроса.
        Для создания вопроса необходимо ввести тест вопроса."""
     serializer_class = QuestionSerializer
+
 
 class QuestionListAPIView(generics.ListAPIView):
     """Получение списка вопросов.
@@ -99,6 +102,7 @@ class QuestionUpdateAPIView(generics.UpdateAPIView):
     """Обновление вопроса."""
     serializer_class = QuestionSerializer
     queryset = Question.objects.all()
+
 
 class QuestionDeleteAPIView(generics.DestroyAPIView):
     """Удаление вопроса."""
@@ -131,6 +135,7 @@ class AnswerCreateAPIView(generics.CreateAPIView):
     """Создание правильного ответа на вопрос.
        Для создания ответа необходимо ввести текст ответа."""
     serializer_class = AnswerSerializer
+
 
 class AnswerUpdateAPIView(generics.UpdateAPIView):
     """Обновление правильного ответа на вопрос."""

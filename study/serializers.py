@@ -46,7 +46,6 @@ class LessonSerializer(serializers.ModelSerializer):
 
 
 class UserAnswerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = UserAnswer
         fields = '__all__'
@@ -61,7 +60,6 @@ class QuestionWithAnswerSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Answer
         fields = '__all__'

@@ -30,7 +30,6 @@ class AnswerAdmin(admin.ModelAdmin):
     list_filter = ('question',)
     search_fields = ('text',)
 
-
 @admin.register(UserAnswer)
 class UserAnswerAdmin(admin.ModelAdmin):
     list_display = ('answer', 'is_passed',)
