@@ -1,0 +1,25 @@
+{% extends 'study/index.html' %}
+
+{% block content %}
+
+<div class="row text-left">
+    <div class="card mb-3" style="max-width: 740px;">
+      <div class="row g-0">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h6 class="card-title" >время: {{ object.datetime }}</h6>
+              <p class="card-title" >статус: {{ object.status }}</p>
+            <p class="card-title" >Периодичность: {{ object.periodicity }}</p>
+            <p class="card-title" >Создатель: {{ object.creator }}</p>
+                                <p>Клиенты:
+                            {% for client in mailing.clients.all  %}
+                            {{ client.email }};
+                            {% endfor %}
+                    </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{%endblock%}

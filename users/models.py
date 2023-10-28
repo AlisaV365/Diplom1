@@ -3,9 +3,11 @@ from django.db import models
 
 NULLABLE = {'blank': True, 'null': True}
 
+
 class UserRoles(models.TextChoices):
     MEMBER = 'member', ('member')
     MODERATOR = 'moderator', ('moderator')
+
 
 class User(AbstractUser):
     username = None

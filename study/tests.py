@@ -1,7 +1,10 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
+from django.urls import reverse
 
-from study.models import Lesson
+
+from study.models import Lesson, Test, Question, Answer, UserAnswer
+from users.models import User
 
 
 class StudyTestCase(APITestCase):
@@ -45,3 +48,44 @@ class StudyTestCase(APITestCase):
             response.status_code,
             status.HTTP_200_OK
         )
+
+
+class TestTest(APITestCase):
+    def setUp(self):
+        data = {
+            'name': 'test',
+            'description': 'test description'
+        }
+        response = self.client.post(
+            '/test_delete/',
+            data=data
+        )
+
+    def test_delete_test(self):
+        data = {
+            'name': 'test',
+            'description': 'test description'
+        }
+        response = self.client.post(
+            '/test_delete/',
+            data=data
+        )
+
+        self.assertFalse(
+            Test.objects.all().exists()
+        )
+
+    def test_create_test(self):
+        """Test creation testing """
+        data = {
+            'name': 'test',
+            'description': 'test description'
+        }
+        response = self.client.post(
+            '/add_test/',
+            data=data
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        self.assertEqual(Test.objects.all().count(), 1)

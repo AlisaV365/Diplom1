@@ -19,7 +19,7 @@ class RegisterView(CreateView):
         self.object = form.save()
         send_mail(
             subject='Поздравляем с регистрацией',
-            message='Теперь вы можете создать себе полезную привычку. Успехов!',
+            message='Теперь можете приступить к обучению!',
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[self.object.email]
         )
@@ -47,3 +47,4 @@ def generate_new_password(request):
     request.user.set_password(new_password)
     request.user.save()
     return redirect(reverse('catalog:index'))
+
